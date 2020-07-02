@@ -1,0 +1,26 @@
+import torch.nn.functional as F
+activations = {
+    "id": (lambda x: x),
+    "relu": F.relu_,
+    "hardtanh": F.hardtanh_,
+    "relu6": (lambda x:F.relu6_(x,inplace=True)),
+    "elu":  F.elu_,
+    "selu": (lambda x:F.selu(x,inplace=True)),
+    "celu": (lambda x:F.celu(x,inplace=True)),
+    "leaky_relu": F.leaky_relu_,
+    "rrelu":F.rrelu_,
+    "gelu":F.gelu,
+    "logsigmoid":F.logsigmoid,
+    "hardshrink":F.hardshrink,
+    "tanhshrink":F.tanhshrink,
+    "softsign":F.softsign,
+    "softplus":F.softplus,
+    "softmin":(lambda x:F.softmin(x,1)),
+    "softmax":(lambda x:F.softmax(x,1)),
+    "softshrink":F.softshrink,
+    "gumbel_softmax":F.gumbel_softmax,
+    "log_softmax":(lambda x:F.log_softmax(x,1)),
+    "tanh":F.tanh,
+    "sigmoid":F.sigmoid,
+}
+    
